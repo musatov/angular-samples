@@ -9,4 +9,5 @@
     <input name="auth-credentials" formControlName="authCredentials">
 
     <button [disabled]="authForm.status !== 'VALID'">PROCEED TO LOGIN</button>
+    <button [disabled]="authForm.status !== 'INVALID'">REGISTER</button>
 </div>

@@ -9,13 +9,16 @@ const USERS = {
 
 @Injectable({ providedIn: 'root'})
 export class LookupService {
-  usernameUsed(username: string): Observable<boolean> {
-    const usernameIsUsed = Object.keys(USERS).includes(username);
-    return of(usernameIsUsed).pipe(delay(1000));
-  }
-
-  emailUsed(email: string): Observable<boolean> {
-    const emailIsUsed = Object.values(USERS).includes(email);
-    return of(emailIsUsed).pipe(delay(1000));
+  credentialsAreAlreadyUsed(authType: string, authCredentials: string): Observable<boolean> {
+    switch (authType) {
+      case 'username':
+        const usernameIsUsed = Object.keys(USERS).includes(authCredentials);
+        return of(usernameIsUsed).pipe(delay(1000));
+      case 'email':
+        const emailIsUsed = Object.values(USERS).includes(authCredentials);
+        return of(emailIsUsed).pipe(delay(1000));
+      default:
+        return of(false).pipe(delay(1000));
+    }
   }
 }

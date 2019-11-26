@@ -13,16 +13,8 @@ export class AuthCredentialsValidatorFactory {
   validator(authType: string): 
     (control: AbstractControl) => Observable<ValidationErrors | null> {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      switch(authType) {
-        case 'email':
-          return this.lookupService.emailUsed(control.value)
-            .pipe(map(result => result ? null : {'email-not-found': true}));
-        case 'username': 
-          return this.lookupService.usernameUsed(control.value)
-            .pipe(map(result => result ? null : {'email-not-found': true}));
-        default:
-          throw new Error('Unsupported validation type');
-      }
+      return this.lookupService.credentialsAreAlreadyUsed(authType, control.value)
+        .pipe(map(result => result ? null : {'credentials-not-found': true}));
     };
   }
 }
