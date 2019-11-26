@@ -1,14 +1,12 @@
 <div class="auth-form" [formGroup]="authForm">
-    <label for="username">Username</label>
-    <input name="username" formControlName="username">
     <label for="auth-mehtod">Auth Method</label>
     <select name="auth-mehtod" formControlName="authMethod">
         <option selected disabled hidden></option>
-        <option value="phone">Phone</option>
+        <option value="username">Username</option>
         <option value="email">Email</option>
     </select>
-    <label for="auth-value">Value</label>
-    <input name="auth-value" formControlName="authValue">
+    <label for="auth-credentials">Value</label>
+    <input name="auth-credentials" formControlName="authCredentials">
 
-    <button [disabled]="authForm.invalid">SUBMIT</button>
+    <button [disabled]="authForm.status !== 'VALID'">PROCEED TO LOGIN</button>
 </div>
