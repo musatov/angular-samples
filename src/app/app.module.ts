@@ -6,13 +6,13 @@ import { AuthFormComponent } from './auth-form/auth-form.component';
 
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
   declarations: [
-    ReactiveFormsModule,
     AppComponent,
     AuthFormComponent
-  ],
-  imports: [
-    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
