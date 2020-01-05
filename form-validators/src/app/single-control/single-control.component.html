@@ -1,0 +1,7 @@
+<label for="email">Email</label>
+<input name="email" type="text" [formControl]="emailControl">
+<div class="errors">
+  <span *ngIf="emailControl.hasError('required')">Email is Required</span> 
+  <span *ngIf="emailControl.hasError('email')">Email is mailformed</span> 
+  <span *ngIf="emailControl.hasError('email-used')">Email was used</span> 
+</div>

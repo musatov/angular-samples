@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<app-auth-form></app-auth-form>`,
+  template: `<router-outlet></router-outlet>`,
   styles: []
 })
 export class AppComponent {
