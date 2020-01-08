@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  padding: 24px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  .form-errors-summary {
+    font-size: 14px;
+    padding-top: 8px;
+    height: 48px;
+    color: red;
+  }
+}

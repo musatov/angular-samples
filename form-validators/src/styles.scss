@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+input {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 8px;
+  background: #f5f5f5;
+  border: solid 1px lightgray;
+  &.ng-invalid {
+    border-color: red;
+  }
+}
+button {
+  font-size: 18px;
+  min-width: 300px;
+  line-height: 24px;
+  padding: 8px;
+}
+
+label {
+  padding-bottom: 4px;
+}
+.errors {
+  font-size: 14px;
+  color: red;
+  height: 20px;
+}
