@@ -3,5 +3,6 @@
 <div class="errors">
   <span *ngIf="emailControl.hasError('required')">Email is Required</span> 
   <span *ngIf="emailControl.hasError('email')">Email is mailformed</span> 
-  <span *ngIf="emailControl.hasError('email-used')">Email was used</span> 
+  <span *ngIf="emailControl.hasError('email-is-used')">{{emailControl.getError('email-is-used')}}</span>
+  <span *ngIf="emailControl.hasError('email-is-forbidden')">{{emailControl.getError('email-is-forbidden')}}</span>
 </div>
