@@ -1,27 +1,26 @@
 <div class="form" [formGroup]="form">
-  <div *ngIf="(form.statusChanges | async) === 'PENDING'" class="progress">VALIDATION IN PROGRESS</div>
   <label for="email">Email</label>
   <input name="email" type="text" formControlName="email">
   <div class="errors">
     <span *ngIf="form.get('email').hasError('required')">Email is Required</span> 
     <span *ngIf="form.get('email').hasError('email')">Email is mailformed</span> 
-    <span *ngIf="form.get('email').hasError('email-used')">Email was used</span> 
   </div>
   <label for="password">Password</label>
-  <input name="password" type="text" formControlName="password">
+  <input name="password" type="password" formControlName="password">
   <div class="errors">
     <span *ngIf="form.get('password').hasError('required')">Password is Required</span>
     <span *ngIf="form.get('password').hasError('password-previously-used')">Password was previously used</span>
   </div>
   <label for="confirmation">Password Confirmation</label>
-  <input name="confirmation" type="text" formControlName="confirmation">
+  <input name="confirmation" type="password" formControlName="confirmation">
   <div class="errors">
     <span *ngIf="form.get('confirmation').hasError('required')">Password confirmation is Required</span> 
-    <span *ngIf="form.get('password').hasError('password-previously-used')">Password was previously used</span>
+    <span *ngIf="form.get('confirmation').hasError('password-previously-used')">Password was previously used</span>
   </div>
   <div class="form-errors-summary"> 
-    <div *ngIf="form.hasError('password-confimration-mismatch')">Password confirmation does not match the password</div>
+    <div *ngIf="form.hasError('password-confirmation-mismatch')">Password confirmation does not match the password</div>
     <div *ngIf="form.hasError('password-previously-used')">Password was used already. Please select a different password.</div>
   </div>
   <button [disabled]="!form.valid" type="submit">SUBMIT</button>
+  <div *ngIf="(form.statusChanges | async) === 'PENDING'" class="progress">VALIDATION IS IN PROGRESS</div>
 </div>

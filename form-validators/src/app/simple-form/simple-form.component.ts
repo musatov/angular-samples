@@ -23,5 +23,5 @@ function passwordConfirmationMissmatch(control: FormGroup): ValidationErrors | n
     return null;
   }
   
-  return { 'password-confimration-mismatch': true };
+  return { 'password-confirmation-mismatch': true };
 }
