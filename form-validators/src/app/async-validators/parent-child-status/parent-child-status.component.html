@@ -1,0 +1,16 @@
+<div class="form" [formGroup]="form">
+  <label for="username">Username</label>
+  <input name="username" type="text" formControlName="username">
+  <div class="errors">
+    <span *ngIf="form.get('username').hasError('required')">Username is Required</span> 
+  </div>
+  <label for="password">Password</label>
+  <input name="password" type="text" formControlName="password">
+  <div class="errors">
+    <span *ngIf="form.get('password').hasError('required')">Password is Required</span> 
+  </div>
+  <div class="form-errors-summary"> 
+    <div *ngIf="form.hasError('password-previously-used')">Password is previously used</div>
+  </div>
+  <div class="progress">VALIDATION IS IN {{form.statusChanges | async}}</div>
+</div>

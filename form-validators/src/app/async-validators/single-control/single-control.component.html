@@ -1,0 +1,7 @@
+<div class="form">
+  <label for="username">Username</label>
+  <input name="username" type="text" [formControl]="usernameControl">
+  <div class="errors">
+    <span *ngIf="usernameControl.hasError('user-does-not-exist')">Username in not used</span> 
+  </div>
+</div>
