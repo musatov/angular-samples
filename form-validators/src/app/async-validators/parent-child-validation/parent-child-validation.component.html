@@ -1,1 +1,19 @@
-<p>parent-child-validation works!</p>
+<div class="form" [formGroup]="form">
+  <label for="username">Username</label>
+  <input name="username" type="text" formControlName="username">
+  <div class="errors">
+    <span *ngIf="form.get('username').hasError('required')">Username is Required</span> 
+    <span *ngIf="form.get('username').hasError('user-does-not-exist')">User does not exist</span> 
+  </div>
+  <label for="password">Password</label>
+  <input name="password" type="text" formControlName="password">
+  <div class="errors">
+    <span *ngIf="form.get('password').hasError('required')">Password is Required</span> 
+  </div>
+  <!-- <div class="form-errors-summary"> 
+    <div *ngIf="form.hasError('password-previously-used')">Password is previously used</div>
+  </div> -->
+  <div class="progress validator">USERNAME ASYNC VALIDATOR STATUS: {{usernameValidatorStatus$ | async}}</div>
+  <div class="progress validator">PASSWORD ASYNC VALIDATOR STATUS: {{passwordValidatorStatus$ | async}}</div>
+  <div class="progress">FORM STATUS IS {{(form.statusChanges | async) || form.status}}</div>
+</div>
