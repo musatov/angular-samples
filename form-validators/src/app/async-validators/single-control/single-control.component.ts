@@ -14,7 +14,7 @@ export class SingleControlComponent {
   
   constructor(cd: ChangeDetectorRef) {
     // Uncoment to fix the problem with UI update
-    this.usernameControl.statusChanges.subscribe(() => cd.markForCheck());
+    // this.usernameControl.statusChanges.subscribe(() => cd.markForCheck());
   }
 }
 
